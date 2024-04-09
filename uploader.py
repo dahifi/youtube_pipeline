@@ -1,3 +1,4 @@
+from youtube_upload import main as youtube_upload
 from crewai_tools import BaseTool
 from pydantic import BaseModel, Field
 from typing import Optional
@@ -47,21 +48,27 @@ class YouTubeUploadTool(CustomTool):
         self.args_schema = YouTubeUploadToolSchema
         self._generate_description()
 
-
     def _run(self, *args, **kwargs):
+        from optparse import Values
         # Convert the Pydantic model to a dictionary so it can be used with argparse
         arguments = vars(self.args_schema(**kwargs))
 
-        from youtube_upload import main as youtube_upload
-        # Call the main function from youtube_uploader
-        youtube_upload.main(arguments)
+        # Create an options object
+        options = Values()
+
+        # Set the attributes of the options object based on your arguments
+        for key, value in arguments.items():
+            setattr(options, key, value)
+
+        # Call run_main directly
+        youtube_upload.run_main(None, options, [])
 
 
 file_path = "youtube_video_metadata.json"
 
 metadata = YouTubeUploadToolSchema.parse_file(file_path)
 
-tool = YouTubeUploadTool(**metadata.dict())
+tool = YouTubeUploadTool()
 
 tool.run(**metadata.dict())
 
