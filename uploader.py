@@ -5,6 +5,7 @@ from typing import Optional
 
 
 class YouTubeUploadToolSchema(BaseModel):
+    file: str = Field(..., description='Video file to upload')
     title: Optional[str] = Field(None, description='Video title')
     category: Optional[str] = Field(None, description='Name of video category')
     description: Optional[str] = Field(None, description='Video description')
@@ -64,9 +65,9 @@ class YouTubeUploadTool(CustomTool):
         youtube_upload.run_main(None, options, [])
 
 
-file_path = "youtube_video_metadata.json"
+metadata_path = "youtube_video_metadata.json"
 
-metadata = YouTubeUploadToolSchema.parse_file(file_path)
+metadata = YouTubeUploadToolSchema.parse_file(metadata_path)
 
 tool = YouTubeUploadTool()
 
