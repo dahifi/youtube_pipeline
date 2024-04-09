@@ -7,7 +7,7 @@ The idea behind the challenge is to create a series of 100 impromptu videos, and
 First, I split the audio from the original file, returning a ffmpeg-compatible audio file to a second folder.  
 This folder action passes the audio file to a [Whisper-X ASR pipeline](https://github.com/ahmetoner/whisper-asr-webservice) that I have running in my lab. This returns a txt file of the transcript. 
 
-From there, I manually run main, which runs it through a very simple CrewAI job to read the latest transcript and generate the metadata file. ``
+From there, I manually run main, which runs it through a very simple CrewAI job to read the latest transcript and generate the metadata file.
 
 You'll need to add the original file_path to the metadata file and fix it up a bit, but it's a good start. 
 
@@ -19,5 +19,9 @@ I was able to upload a video running uploader in my IDE, which is enough for thi
 * Update playlist in metadata
 * Auto select proper category from youtube options
 * Make proper crewAI job to use the uploader
-* Move pipline directories and macos folder actions
+* Move pipline directories ~~~and macos folder actions~~~
 
+## Changelog
+#### 2024-04-09
+* Initial 'release'
+* Added MacOS folder actions
