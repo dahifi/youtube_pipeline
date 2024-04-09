@@ -2,7 +2,7 @@ from crewai import Agent, Task, Crew, Process
 from crewai_tools.tools.directory_read_tool.directory_read_tool import DirectoryReadTool
 from crewai_tools.tools.file_read_tool.file_read_tool import FileReadTool
 
-directory_read_tool = DirectoryReadTool('/transcription')
+directory_read_tool = DirectoryReadTool('/Users/bcm/projects/youtube_pipeline/transcription')
 file_read_tool = FileReadTool()
 producer = Agent(
     role='Producer',
