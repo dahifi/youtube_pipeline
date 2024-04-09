@@ -1,3 +1,6 @@
+import logging
+
+from oauth2client.client import HttpAccessTokenRefreshError
 from youtube_upload import main as youtube_upload
 from crewai_tools import BaseTool
 from pydantic import BaseModel, Field
@@ -5,7 +8,7 @@ from typing import Optional
 
 
 class YouTubeUploadToolSchema(BaseModel):
-    file: str = Field(..., description='Video file to upload')
+    file_path: str = Field(..., description='Video file to upload')
     title: Optional[str] = Field(None, description='Video title')
     category: Optional[str] = Field(None, description='Name of video category')
     description: Optional[str] = Field(None, description='Video description')
@@ -54,6 +57,9 @@ class YouTubeUploadTool(CustomTool):
         # Convert the Pydantic model to a dictionary so it can be used with argparse
         arguments = vars(self.args_schema(**kwargs))
 
+        # Separate the file_path from the rest of the arguments
+        file_path = arguments.pop('file_path')
+
         # Create an options object
         options = Values()
 
@@ -62,7 +68,10 @@ class YouTubeUploadTool(CustomTool):
             setattr(options, key, value)
 
         # Call run_main directly
-        youtube_upload.run_main(None, options, [])
+        try:
+            youtube_upload.run_main(None, options, [file_path])
+        except HttpAccessTokenRefreshError as e:
+            logging.error(e)
 
 
 metadata_path = "youtube_video_metadata.json"
