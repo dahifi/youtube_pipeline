@@ -1,7 +1,6 @@
 {
-  "file_path": "/Users/bcm/projects/youtube_pipeline/video/IMG_6641.mov",
-  "title": "Facing Self-Doubt & The Power of Consistent Practice | A Personal Journey",
-  "description": "In today's video, I open up about the struggles I'm facing with self-doubt, aging, and the creative process. Inspired by the likes of Seth Godin and Tim Ferris, I delve into the importance of maintaining consistency in practice and pushing through the 'trough of despair'. I also discuss the challenges of remaining authentic in my work and the fear of becoming something I'm not. This journey is not just about me, it's about all of us who are trying to create, innovate, and make a difference. Let's navigate this journey together.",
-    "call_to_action": "Join the conversation. Leave a comment and let's discuss the struggles and victories you're experiencing in your creative journey.",
-    "tags": "#SethGodin #TimFerris #Consistency #SelfDoubt #Aging #CreativeProcess #Authenticity #PersonalJourney"
+  "file_path": "/path/to/mov",
+  "title": "This is the YT title up to 100 characters",
+  "description": "This will be the YT description up to 1500 characters",
+  "tags": "#tag1 #tag2"
 }
