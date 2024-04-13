@@ -2,7 +2,7 @@ from crewai import Agent, Task, Crew, Process
 from crewai_tools.tools.directory_read_tool.directory_read_tool import DirectoryReadTool
 from crewai_tools.tools.file_read_tool.file_read_tool import FileReadTool
 
-directory_read_tool = DirectoryReadTool('/Users/bcm/projects/youtube_pipeline/transcription')
+directory_read_tool = DirectoryReadTool('./transcription')
 file_read_tool = FileReadTool()
 producer = Agent(
     role='Producer',
@@ -21,7 +21,7 @@ copywriting_task = Task(
         "From the propvided video transcription directory, find the most recent file and read it. Extract key themes and messages. Based on this analysis, craft a captivating YouTube video title that accurately reflects the video's content while enticing potential viewers. Additionally, write a comprehensive description that provides viewers with a clear overview of the video's content, including any relevant links or call-to-action statements. Append a set of relevant tags within the description to improve the video's searchability and alignment with audience interests."
     ),
     expected_output=(
-        "A properly formatted json file with the following keys: title: the YouTube video title, description: a detailed description. The description should include a brief summary of the video's content, relevant links, call-to-action prompts, and a list of tags related to the video's themes and content."
+        "A properly formatted json file with the following keys: title: the YouTube video title; description: a detailed description. The description should include a brief summary of the video's content, relevant links, call-to-action prompts, followed by a list of tags related to the video's themes and content."
     ),
     agent=producer,
     output_file='youtube_video_metadata.json'
