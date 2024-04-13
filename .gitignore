@@ -1,3 +1,7 @@
 /auth/
 /youtube_upload/
 
+video/*
+audio/*
+logs/*
+transcription/*
