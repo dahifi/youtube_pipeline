@@ -21,7 +21,7 @@ copywriting_task = Task(
         "From the propvided video transcription directory, find the most recent file and read it. Extract key themes and messages. Based on this analysis, craft a captivating YouTube video title that accurately reflects the video's content while enticing potential viewers. Additionally, write a comprehensive description that provides viewers with a clear overview of the video's content, including any relevant links or call-to-action statements. Append a set of relevant tags within the description to improve the video's searchability and alignment with audience interests."
     ),
     expected_output=(
-        "A properly formatted json file with the following keys: title: the YouTube video title; description: a detailed description. The description should include a brief summary of the video's content, relevant links, call-to-action prompts, followed by a list of tags related to the video's themes and content."
+        "A properly formatted json file with the following keys: file_path: the filename of the original video, usually IMG_XXXX.mov; title: the YouTube video title; description: a detailed description. The description should include a brief summary of the video's content, relevant links, call-to-action prompts, followed by a list of tags related to the video's themes and content."
     ),
     agent=producer,
     output_file='youtube_video_metadata.json'
