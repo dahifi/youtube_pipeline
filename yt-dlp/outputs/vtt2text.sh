@@ -1,0 +1,1 @@
+find . -name "*.vtt" -exec python vtt2text.py {} \;
