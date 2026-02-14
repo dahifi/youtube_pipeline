@@ -2,3 +2,16 @@ video/*
 audio/*
 logs/*
 transcription/*
+output/
+.DS_Store
+*.wfp
+.idea/
+dagger/
+yt-dlp/outputs/
+__pycache__/
+*.pyc
+.env
+*.key
+*.pem
+*client_secret*
+*credentials*.json
